@@ -2,9 +2,11 @@ let words = ["coffee", "latte", "mocha", "tea", "americano"];
 
 let options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-let randomWord = words[Math.floor((Math.random() * words.length) + 1)];
+let randomWord = words[Math.floor(Math.random() * words.length)];
 
 let displayWord = "";
+
+let newDisplayWord = "";
 
 let guesses = 15;
 
@@ -28,15 +30,16 @@ display();
     if (options.indexOf(userGuess) > -1) {
         for (let i = 0; i < randomWord.length; i++) {
             if (userGuess === randomWord[i]) {
+                newDisplayWord = newDisplayWord.concat(randomWord[i] + " ");
                 console.log("Yes!");
-               displayWord[i] = displayWord[i].replace(userGuess);
             } else {
+                newDisplayWord = newDisplayWord.concat("_ ");
                 console.log("No!");
-                displayWord[i] = displayWord[i];
+                
             }
         }
 
-        console.log("new display word is " + displayWord);
+        console.log("The new display word is " + newDisplayWord)
 
 
     //     if (allGuesses.indexOf(userGuess) === -1) {
@@ -57,9 +60,9 @@ display();
     //     } else {
     //         alert("Choose an unused letter to continue playing!")
     //     }
-    // } else {
-    //     alert("Choose a letter to play!");
-    //     }
+    } else {
+        alert("Choose a letter to play!");
+        };
     
-    }
+    
 }
